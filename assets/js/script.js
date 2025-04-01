@@ -71,7 +71,7 @@ document.addEventListener('visibilitychange',
 
 // <!-- typed js effect starts -->
 var typed = new Typed(".typing-text", {
-    strings: ["PLC Programmers", "Mechanics Design", "3D 2D Sketch", "Electrician", "Programmers"],
+    strings: ["PLC Specialist", "Mechanics Designer", "2D Sketch", "Drafter", "3D Designer", "Electrician","Enthusiastic About Drones", "Programmers"],
     loop: true,
     typeSpeed: 50,
     backSpeed: 25,
@@ -138,7 +138,7 @@ function showProjects(projects) {
         origin: 'top',
         distance: '80px',
         duration: 1000,
-        reset: true
+        reset: false
     });
 
     /* SCROLL PROJECTS */
@@ -208,7 +208,7 @@ const srtop = ScrollReveal({
     origin: 'top',
     distance: '80px',
     duration: 1000,
-    reset: true
+    reset: false
 });
 
 /* SCROLL HOME */
@@ -217,12 +217,13 @@ srtop.reveal('.home .content p', { delay: 200 });
 srtop.reveal('.home .content .btn', { delay: 200 });
 
 srtop.reveal('.home .image', { delay: 400 });
-srtop.reveal('.home .linkedin', { interval: 600 });
-srtop.reveal('.home .github', { interval: 800 });
-srtop.reveal('.home .twitter', { interval: 1000 });
-srtop.reveal('.home .telegram', { interval: 600 });
-srtop.reveal('.home .instagram', { interval: 600 });
-srtop.reveal('.home .dev', { interval: 600 });
+srtop.reveal('.home .linkedin', { delay: 600 });
+srtop.reveal('.home .github', { delay: 800 });
+srtop.reveal('.home .gmail', { delay: 1000 });
+srtop.reveal('.home .turbosquid', { delay: 1200 });
+srtop.reveal('.home .GrabCAD', { delay: 1400 });
+srtop.reveal('.home .Whatsapp', { delay: 1800 });
+srtop.reveal('.home .instagram', { delay: 2000 });
 
 /* SCROLL ABOUT */
 srtop.reveal('.about .content h3', { delay: 200 });
@@ -249,3 +250,72 @@ srtop.reveal('.experience .timeline .container', { interval: 400 });
 /* SCROLL CONTACT */
 srtop.reveal('.contact .container', { delay: 400 });
 srtop.reveal('.contact .container .form-group', { delay: 400 });
+
+const images = [
+    "./assets/images/hero1.png",
+    "./assets/images/hero2.png",
+    "./assets/images/hero3.png"
+  ];
+
+  let index = 0;
+  const imgElement = document.getElementById("currentImg");
+  let interval;
+
+  function startSlideshow() {
+    interval = setInterval(changeImage, 4000);
+  }
+
+  function stopSlideshow() {
+    clearInterval(interval);
+  }
+
+  function changeImage() {
+    imgElement.classList.add("exit");
+
+    setTimeout(() => {
+      index = (index + 1) % images.length;
+      imgElement.src = images[index];
+      imgElement.classList.remove("exit");
+      imgElement.classList.add("enter");
+
+      setTimeout(() => {
+        imgElement.classList.remove("enter");
+      }, 700);
+    }, 700);
+  }
+
+  imgElement.addEventListener("mouseover", stopSlideshow);
+  imgElement.addEventListener("mousedown", stopSlideshow);
+
+  imgElement.addEventListener("mouseleave", startSlideshow);
+  imgElement.addEventListener("mouseup", startSlideshow);
+
+  startSlideshow();
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var moreExperience = document.getElementById("more-experience");
+    var button = document.getElementById("view-all-btn");
+    
+    button.addEventListener("click", function() {
+        if (moreExperience.style.display === "none" || moreExperience.style.display === "") {
+            moreExperience.style.display = "block";
+            button.innerHTML = "<span>View Less</span> <i class='fas fa-arrow-up'></i>";
+
+            srtop.clean('.experience .more-experience');
+            srtop.clean('.experience .more-experience .container');
+            setTimeout(() => {
+                srtop.reveal('.experience .more-experience', { delay: 400 });
+                srtop.reveal('.experience .more-experience .container', { interval: 400 });
+            }, 100); 
+
+        } else {
+            moreExperience.style.display = "none";
+            button.innerHTML = "<span>View More</span> <i class='fas fa-arrow-down'></i>";
+            setTimeout(() => {
+            moreExperience.style.display = "none";}, 50);
+            srtop.clean('.experience .more-experience');
+            srtop.clean('.experience .more-experience .container');
+        }
+    });
+});
