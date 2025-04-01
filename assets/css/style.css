@@ -218,12 +218,15 @@ header .navbar ul li a:hover {
 }
 .home .image img {
   width: 90%;
-  margin-left: 6rem;
+  margin-left: 0;
   border-radius: 10%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: transform 1s ease, opacity 1s ease;
 }
+
+/* Efek keluar (geser ke kiri & mengecil) */
+.exit {
   transform: translateX(-50px) scale(0.9);
   opacity: 0;
 }
@@ -309,7 +312,7 @@ header .navbar ul li a:hover {
   width: 44px;
   height: 44px;
   text-align: center;
-  margin-right: 8px;
+  margin: 3px;
   border-radius: 100%;
   -webkit-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
@@ -345,7 +348,7 @@ header .navbar ul li a:hover {
 /* social icons end */
 
 /* hero media queries starts*/
-@media (max-width: 480px) {
+@media (max-width: 450px) {
   .home .btn {
     margin: 4rem 0;
   }
@@ -941,7 +944,7 @@ header .navbar ul li a:hover {
     margin-top: 2rem;
   }
   .experience .timeline::after,
-  .experience .more-experience {
+  .experience .more-experience::after {
     left: 31px;
   }
   .experience .container {
