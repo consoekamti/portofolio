@@ -224,9 +224,6 @@ header .navbar ul li a:hover {
   cursor: pointer;
   transition: transform 1s ease, opacity 1s ease;
 }
-
-/* Efek keluar (geser ke kiri & mengecil) */
-.exit {
   transform: translateX(-50px) scale(0.9);
   opacity: 0;
 }
@@ -348,7 +345,7 @@ header .navbar ul li a:hover {
 /* social icons end */
 
 /* hero media queries starts*/
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   .home .btn {
     margin: 4rem 0;
   }
@@ -939,10 +936,12 @@ header .navbar ul li a:hover {
   .experience {
     min-height: 80vh;
   }
-  .experience .timeline {
+  .experience .timeline,
+  .experience .more-experience {
     margin-top: 2rem;
   }
-  .experience .timeline::after {
+  .experience .timeline::after,
+  .experience .more-experience {
     left: 31px;
   }
   .experience .container {
