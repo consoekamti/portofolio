@@ -939,8 +939,7 @@ header .navbar ul li a:hover {
   .experience {
     min-height: 80vh;
   }
-  .experience .timeline,
-  .experience .more-experience {
+  .experience .timeline {
     margin-top: 2rem;
   }
   .experience .timeline::after,
