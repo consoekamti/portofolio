@@ -542,6 +542,25 @@ header .navbar ul li a:hover {
   font-family: "Poppins";
   margin-left: 0.5rem;
 }
+.skills .container .bar .info img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+  transition: transform 0.3s ease; /* Smooth animation saat hover */
+}
+
+/* Hover effect: membesarkan icon sedikit */
+.skills .container .bar:hover .info img {
+  transform: scale(1.1);
+}
+
+/* Responsive: untuk layar kecil */
+@media screen and (max-width: 600px) {
+  .skills .container .bar .info img {
+    width: 3rem;
+    height: 3rem;
+  }
+}
 /* skills media queries starts*/
 @media screen and (max-width: 600px) {
   .skills .container {
